@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.get("/:room", (req, res) => {
     res.render('room', { roomID: req.params.room })
 })
-
+const port = process.env.PORT || 5000
 io.on('connection', (socket) => {
     socket.on('join - room', (roomId, userId) => {
         socket.join(roomId);
@@ -26,4 +26,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(5000)
+server.listen(port, () => {
+    console.log(`server is currently listening on port ${port}`)
+})
