@@ -12,7 +12,7 @@ app.use('/peerjs', peerServer)
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
-app.get("/", (req, res) => {
+app.get("/welcome", (req, res) => {
     res.redirect(`/${uuidv4()}`);
 })
 app.get("/:room", (req, res) => {
